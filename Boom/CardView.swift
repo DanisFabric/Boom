@@ -12,32 +12,30 @@ import UIKit
 class CardView: UIView {
     var blurView: UIVisualEffectView?
     
-    init(frame: CGRect, style: Style) {
+    init(frame: CGRect, backgroundStyle: BackgroundStyle) {
         super.init(frame: frame)
         
         layer.anchorPoint = CGPoint(x: 0.5, y: 0.5)
+
         
-        switch style {
-        case .warning:
-            backgroundColor = UIColor(hex: 0xf13649)
-        case .info(let infoType):
-            if infoType == .light {
-                blurView = UIVisualEffectView(effect: UIBlurEffect(style: .extraLight))
-                blurView?.layer.cornerRadius = 2
-                blurView?.layer.masksToBounds = true
-                addSubview(blurView!)
-            } else {
-                backgroundColor = UIColor(hex: 0x2d2d2d)
-            }
-        case .success:
-            backgroundColor = UIColor(hex: 0xffd200)
+        switch backgroundStyle {
+        case .color(let color):
+            layer.contents = UIImage.image(size: frame.size, color: color, cornerRadius: Boom.Appearence.cornerRadius).cgImage
+        case .blur(let blurEffectStyle):
+            blurView = UIVisualEffectView(effect: UIBlurEffect(style: blurEffectStyle))
+            blurView?.layer.cornerRadius = 2
+            blurView?.layer.masksToBounds = true
+            
+            addSubview(blurView!)
         }
         
-        layer.cornerRadius = 2
-        layer.shadowColor = UIColor.black.cgColor
-        layer.shadowOpacity = 0.3
-        layer.shadowOffset = CGSize(width: 0, height: 2)
-        layer.shadowRadius = 4
+        if Boom.Appearence.Shadow.isEnabled {
+            layer.shadowColor = Boom.Appearence.Shadow.color.cgColor
+            layer.shadowOpacity = Float(Boom.Appearence.Shadow.alpha)
+            layer.shadowOffset = CGSize(width: Boom.Appearence.Shadow.offset.horizontal, height: Boom.Appearence.Shadow.offset.vertical)
+            layer.shadowRadius = Boom.Appearence.Shadow.radius
+            layer.shadowPath = UIBezierPath(roundedRect: CGRect(origin: CGPoint(), size: frame.size), cornerRadius: Boom.Appearence.cornerRadius).cgPath
+        }
     }
     
     required init?(coder aDecoder: NSCoder) {

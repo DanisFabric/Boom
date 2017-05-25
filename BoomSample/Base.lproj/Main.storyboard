@@ -98,6 +98,7 @@
                                 <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </toolbar>
                         </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Qsc-CO-8c7" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="DlW-9y-8o7"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Qsc-CO-8c7" secondAttribute="bottom" id="EDw-fR-1sG"/>

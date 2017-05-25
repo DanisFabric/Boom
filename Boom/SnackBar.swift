@@ -31,11 +31,29 @@ class SnackBar: CardView {
         return button
     }()
 
-    init(frame: CGRect, style: Style, title: String, action: Action, closeHandler: @escaping (() -> Void)) {
+    init(frame: CGRect, style: SnackBarStyle, title: String, action: Action, closeHandler: @escaping (() -> Void)) {
         self.actionHandler = action.handler
         self.closeHandler = closeHandler
         
-        super.init(frame: frame, style: style)
+        let background: BackgroundStyle
+        let content: ContentStyle
+        
+        switch style {
+        case .success:
+            background = Boom.Appearence.Background.success
+            content = Boom.Appearence.Content.success
+        case .info:
+            background = Boom.Appearence.Background.info
+            content = Boom.Appearence.Content.info
+        case .warning:
+            background = Boom.Appearence.Background.warning
+            content = Boom.Appearence.Content.warning
+        case .custom(let customBackground, let customContent):
+            background = customBackground
+            content = customContent
+        }
+        
+        super.init(frame: frame, backgroundStyle: background)
         
         addSubview(closeButton)
         addSubview(titleLabel)
@@ -46,15 +64,19 @@ class SnackBar: CardView {
         actionButton.addTarget(self, action: #selector(onTouchActionButton(_:)), for: .touchUpInside)
         closeButton.addTarget(self, action: #selector(onTouchCloseButton(_:)), for: .touchUpInside)
         
-        if style.isLightContent {
-            closeButton.tintColor = UIColor.white
-            titleLabel.textColor = UIColor.white
-            actionButton.tintColor = UIColor.white
-        } else {
-            closeButton.tintColor = UIColor(hex: 0x2d2d2d)
-            titleLabel.textColor = UIColor(hex: 0x2d2d2d)
-            actionButton.tintColor = UIColor(hex: 0x2d2d2d)
+        let contentColor: UIColor
+        switch content {
+        case .light:
+            contentColor = UIColor.white
+        case .dark:
+            contentColor = UIColor.black
+        case .custom(let color):
+            contentColor = color
+            
         }
+        closeButton.tintColor = contentColor
+        titleLabel.textColor = contentColor
+        actionButton.tintColor = contentColor
     }
     
     required init?(coder aDecoder: NSCoder) {

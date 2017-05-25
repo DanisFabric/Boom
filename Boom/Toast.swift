@@ -18,8 +18,32 @@ class Toast: CardView {
         return label
     }()
 
-    init(frame: CGRect, style: Style, title: String) {
-        super.init(frame: frame, style: style)
+    init(frame: CGRect, style: ToastStyle, title: String) {
+        
+        let background: BackgroundStyle
+        let icon: Icon
+        let content: ContentStyle
+        
+        switch style {
+        case .success:
+            icon = .success
+            background = Boom.Appearence.Background.success
+            content = Boom.Appearence.Content.success
+        case .info:
+            icon = .info
+            background = Boom.Appearence.Background.info
+            content = Boom.Appearence.Content.info
+        case .warning:
+            icon = .warning
+            background = Boom.Appearence.Background.warning
+            content = Boom.Appearence.Content.warning
+        case .custom(let customBackground, let customIcon, let customContent):
+            icon = customIcon
+            background = customBackground
+            content = customContent
+        }
+        
+        super.init(frame: frame, backgroundStyle: background)
         
         titleLabel.text = title
         indicator.isUserInteractionEnabled = false
@@ -27,20 +51,29 @@ class Toast: CardView {
         addSubview(indicator)
         addSubview(titleLabel)
         
-        if style.isLightContent {
-            titleLabel.textColor = UIColor.white
-            indicator.tintColor = UIColor.white
-        } else {
-            titleLabel.textColor = UIColor(hex: 0x2d2d2d)
-            indicator.tintColor = UIColor(hex: 0x2d2d2d)
+        
+        let contentColor: UIColor
+        switch content {
+        case .light:
+            contentColor = UIColor.white
+        case .dark:
+            contentColor = UIColor.black
+        case .custom(let color):
+            contentColor = color
+        
         }
-        switch style {
+        titleLabel.textColor = contentColor
+        indicator.tintColor = contentColor
+        
+        switch icon {
         case .info:
-            indicator.setImage(UIImage(named: "card-icon-info", in: Bundle(for: Toast.self), compatibleWith: nil), for: .normal)
+            indicator.setImage(Boom.Appearence.Icon.info, for: .normal)
         case .success:
-            indicator.setImage(UIImage(named: "card-icon-success", in: Bundle(for: Toast.self), compatibleWith: nil), for: .normal)
+            indicator.setImage(Boom.Appearence.Icon.success, for: .normal)
         case .warning:
-            indicator.setImage(UIImage(named: "card-icon-warning", in: Bundle(for: Toast.self), compatibleWith: nil), for: .normal)
+            indicator.setImage(Boom.Appearence.Icon.warning, for: .normal)
+        case .custom(let image):
+            indicator.setImage(image, for: .normal)
         }
     }
     

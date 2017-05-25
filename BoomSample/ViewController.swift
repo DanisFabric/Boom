@@ -28,12 +28,12 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     @IBAction func snakerInfoDark(_ sender: Any) {
-        boom.show(snackBar: .info(.dark), title: "I am SnackBar", action: Action(title: "Touch me", handler: {
+        boom.show(snackBar: .info, title: "I am SnackBar", action: Action(title: "Touch me", handler: {
             print("Did Touch")
         }))
     }
     @IBAction func snakerInfoLight(_ sender: Any) {
-        boom.show(snackBar: .info(.light), title: "I am SnackBar", action: Action(title: "Touch me", handler: {
+        boom.show(snackBar: .info, title: "I am SnackBar", action: Action(title: "Touch me", handler: {
             
         }))
     }
@@ -49,11 +49,11 @@ class ViewController: UIViewController {
     }
     
     @IBAction func toastInfoDark(_ sender: Any) {
-        boom.show(toast: .info(.dark), title: "I am Toast")
+        boom.show(toast: .info, title: "I am Toast")
     }
     
     @IBAction func toastInfoLight(_ sender: Any) {
-        boom.show(toast: .info(.light), title: "I am Toast")
+        boom.show(toast: .info, title: "I am Toast")
 
     }
     @IBAction func toastSucess(_ sender: Any) {

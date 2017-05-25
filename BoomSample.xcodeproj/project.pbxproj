@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		001F858B1ED66E060017CD9A /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001F858A1ED66E060017CD9A /* UIColor+Hex.swift */; };
+		001F858D1ED66E1F0017CD9A /* UIImage+Boom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001F858C1ED66E1F0017CD9A /* UIImage+Boom.swift */; };
 		00FAD9081ED51A18007E7312 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FAD9071ED51A18007E7312 /* AppDelegate.swift */; };
 		00FAD90A1ED51A18007E7312 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FAD9091ED51A18007E7312 /* ViewController.swift */; };
 		00FAD90D1ED51A18007E7312 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00FAD90B1ED51A18007E7312 /* Main.storyboard */; };
@@ -20,7 +22,6 @@
 		00FAD9301ED52140007E7312 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00FAD92F1ED52140007E7312 /* Assets.xcassets */; };
 		00FAD9321ED52FED007E7312 /* SnackBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FAD9311ED52FED007E7312 /* SnackBar.swift */; };
 		00FAD9341ED52FF7007E7312 /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FAD9331ED52FF7007E7312 /* Toast.swift */; };
-		00FAD9421ED567BA007E7312 /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FAD9411ED567BA007E7312 /* UIColor+Hex.swift */; };
 		00FAD9441ED573FB007E7312 /* BoomContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FAD9431ED573FB007E7312 /* BoomContainer.swift */; };
 /* End PBXBuildFile section */
 
@@ -49,6 +50,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		001F858A1ED66E060017CD9A /* UIColor+Hex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
+		001F858C1ED66E1F0017CD9A /* UIImage+Boom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Boom.swift"; sourceTree = "<group>"; };
 		00FAD9041ED51A18007E7312 /* BoomSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BoomSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		00FAD9071ED51A18007E7312 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		00FAD9091ED51A18007E7312 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -64,7 +67,6 @@
 		00FAD92F1ED52140007E7312 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		00FAD9311ED52FED007E7312 /* SnackBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnackBar.swift; sourceTree = "<group>"; };
 		00FAD9331ED52FF7007E7312 /* Toast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
-		00FAD9411ED567BA007E7312 /* UIColor+Hex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
 		00FAD9431ED573FB007E7312 /* BoomContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoomContainer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -87,6 +89,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		001F85891ED66DEF0017CD9A /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				001F858A1ED66E060017CD9A /* UIColor+Hex.swift */,
+				001F858C1ED66E1F0017CD9A /* UIImage+Boom.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
 		00FAD8FB1ED51A18007E7312 = {
 			isa = PBXGroup;
 			children = (
@@ -127,7 +138,7 @@
 				00FAD92D1ED51C6E007E7312 /* CardView.swift */,
 				00FAD9311ED52FED007E7312 /* SnackBar.swift */,
 				00FAD9331ED52FF7007E7312 /* Toast.swift */,
-				00FAD9411ED567BA007E7312 /* UIColor+Hex.swift */,
+				001F85891ED66DEF0017CD9A /* Util */,
 				00FAD92F1ED52140007E7312 /* Assets.xcassets */,
 				00FAD9211ED51A22007E7312 /* Info.plist */,
 			);
@@ -261,12 +272,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				001F858B1ED66E060017CD9A /* UIColor+Hex.swift in Sources */,
 				00FAD9441ED573FB007E7312 /* BoomContainer.swift in Sources */,
 				00FAD9321ED52FED007E7312 /* SnackBar.swift in Sources */,
 				00FAD9341ED52FF7007E7312 /* Toast.swift in Sources */,
 				00FAD92E1ED51C6E007E7312 /* CardView.swift in Sources */,
 				00FAD92C1ED51A3C007E7312 /* Boom.swift in Sources */,
-				00FAD9421ED567BA007E7312 /* UIColor+Hex.swift in Sources */,
+				001F858D1ED66E1F0017CD9A /* UIImage+Boom.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

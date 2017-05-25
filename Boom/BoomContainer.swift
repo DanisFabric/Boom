@@ -8,9 +8,6 @@
 
 import UIKit
 
-private let PreferedCardHeight: CGFloat = 40
-private let PreferedCardPadding = UIOffset(horizontal: 16, vertical: 9)
-
 class BoomContainer: UIView {
     var baseView: UIView
     
@@ -19,7 +16,7 @@ class BoomContainer: UIView {
     var preferdCardFrame: CGRect {
         fill()
         
-        return CGRect(x: 0, y: 0, width: self.bounds.width - PreferedCardPadding.horizontal * 2, height: PreferedCardHeight)
+        return CGRect(x: 0, y: 0, width: self.bounds.width - Boom.Appearence.padding.horizontal * 2, height: Boom.Appearence.preferdHeight)
     }
     
     init(baseView: UIView) {
@@ -35,7 +32,7 @@ class BoomContainer: UIView {
     func show(card: CardView, completion: (() -> Void)?) {
         addSubview(card)
         card.alpha = 0
-        card.center = CGPoint(x: bounds.width / 2 + offset.horizontal, y: offset.vertical + card.frame.height / 2 + PreferedCardPadding.vertical)
+        card.center = CGPoint(x: bounds.width / 2 + offset.horizontal, y: offset.vertical + card.frame.height / 2 + Boom.Appearence.padding.vertical)
         card.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
         
         UIView.animate(withDuration: 0.2, animations: {
@@ -44,7 +41,7 @@ class BoomContainer: UIView {
             
             self.subviews.filter { $0 != card }.forEach { (subview) in
                 if let otherCard = subview as? CardView {
-                    otherCard.frame = otherCard.frame.offsetBy(dx: 0, dy: otherCard.frame.height + PreferedCardPadding.vertical)
+                    otherCard.frame = otherCard.frame.offsetBy(dx: 0, dy: otherCard.frame.height + Boom.Appearence.padding.vertical)
                 }
             }
             
@@ -59,7 +56,7 @@ class BoomContainer: UIView {
             self.subviews.filter {
                 $0.frame.minY > card.frame.minY
                 }.forEach { (otherCard) in
-                    otherCard.frame = otherCard.frame.offsetBy(dx: 0, dy: -(otherCard.frame.height + PreferedCardPadding.vertical))
+                    otherCard.frame = otherCard.frame.offsetBy(dx: 0, dy: -(otherCard.frame.height + Boom.Appearence.padding.vertical))
             }
             
         }) { (_) in
