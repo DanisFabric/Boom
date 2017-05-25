@@ -25,12 +25,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Boom.Appearence.Content.info = .dark
         Boom.Appearence.Content.warning = .light
         
-        Boom.Appearence.Background.info = .blur(.light)
+        Boom.Appearence.Background.info = .blur(.regular)
         
         Boom.Appearence.Icon.info = UIImage(named: "heart")!
         
         
-        Boom.Appearence.Shadow.isEnabled = false
+        Boom.Appearence.Shadow.isEnabled = true
         Boom.Appearence.Shadow.offset = UIOffset(horizontal: 0, vertical: 2)
         Boom.Appearence.Shadow.radius = 2
         

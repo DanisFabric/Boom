@@ -28,6 +28,15 @@ public enum Icon {
 public enum BackgroundStyle {
     case color(UIColor)
     case blur(UIBlurEffectStyle)
+    
+    var isBlur: Bool {
+        switch self {
+        case .blur:
+            return true
+        default:
+            return false
+        }
+    }
 }
 
 public enum ContentStyle {
@@ -65,6 +74,7 @@ public class Boom {
             public static var alpha: CGFloat = 0.3
             public static var color = UIColor.black
             public static var radius: CGFloat = 2
+            public static var exceptBlurBackground = true
         }
         
         public struct Icon {

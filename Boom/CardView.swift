@@ -29,7 +29,7 @@ class CardView: UIView {
             addSubview(blurView!)
         }
         
-        if Boom.Appearence.Shadow.isEnabled {
+        if Boom.Appearence.Shadow.isEnabled && ((backgroundStyle.isBlur && !Boom.Appearence.Shadow.exceptBlurBackground) || !backgroundStyle.isBlur)  {
             layer.shadowColor = Boom.Appearence.Shadow.color.cgColor
             layer.shadowOpacity = Float(Boom.Appearence.Shadow.alpha)
             layer.shadowOffset = CGSize(width: Boom.Appearence.Shadow.offset.horizontal, height: Boom.Appearence.Shadow.offset.vertical)
