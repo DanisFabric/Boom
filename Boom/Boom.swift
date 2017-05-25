@@ -53,7 +53,7 @@ public enum SnackBarStyle {
 public class Boom {
     public struct Appearence {
         public static var cornerRadius: CGFloat = 2
-        public static var preferdHeight: CGFloat = 40
+        public static var preferdHeight: CGFloat = 48
         public static var maxHeight: CGFloat = 64
         public static var padding = UIOffset(horizontal: 16, vertical: 8)
         public static var duration: TimeInterval = 2
@@ -74,14 +74,14 @@ public class Boom {
         }
         
         public struct Background {
-            public static var success = BackgroundStyle.color(UIColor(hex: 0x5af158))
+            public static var success = BackgroundStyle.color(UIColor(hex: 0x1bc864))
             public static var warning = BackgroundStyle.color(UIColor(hex: 0xf13649))
             public static var info = BackgroundStyle.blur(.extraLight)
         }
         
         public struct Content {
-            public static var success = ContentStyle.dark
-            public static var warning = ContentStyle.dark
+            public static var success = ContentStyle.light
+            public static var warning = ContentStyle.light
             public static var info = ContentStyle.dark
         }
     }
