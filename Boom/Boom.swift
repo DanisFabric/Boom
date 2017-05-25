@@ -73,8 +73,8 @@ public class Boom {
         }
         
         public struct Background {
-            public static var success = BackgroundStyle.color(UIColor.green)
-            public static var warning = BackgroundStyle.color(UIColor.red)
+            public static var success = BackgroundStyle.color(UIColor(hex: 0x5af158))
+            public static var warning = BackgroundStyle.color(UIColor(hex: 0xf13649))
             public static var info = BackgroundStyle.blur(.extraLight)
         }
         

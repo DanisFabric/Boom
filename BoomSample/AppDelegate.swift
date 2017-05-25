@@ -17,8 +17,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
+        Boom.Appearence.duration = 1.5
+        Boom.Appearence.preferdHeight = 64
+        Boom.Appearence.padding = UIOffset(horizontal: 16, vertical: 16)
+        Boom.Appearence.cornerRadius = 8
+        
+        Boom.Appearence.Content.info = .dark
+        Boom.Appearence.Content.success = .dark
+        Boom.Appearence.Content.warning = .light
+        
+        Boom.Appearence.Background.info = .blur(.prominent)
+        
+        Boom.Appearence.Icon.info = UIImage(named: "heart")!
+        
         
         Boom.Appearence.Shadow.isEnabled = false
+        Boom.Appearence.Shadow.offset = UIOffset(horizontal: 2, vertical: 2)
+        Boom.Appearence.Shadow.radius = 2
+        
         
         // Override point for customization after application launch.
         return true
