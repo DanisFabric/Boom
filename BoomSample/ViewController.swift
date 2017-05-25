@@ -19,7 +19,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        boom = Boom(base: self.navigationController!)
+//        boom = Boom(base: self.navigationController!)
+        boom = Boom(base: nil)
         boom.offset = UIOffset(horizontal: 0, vertical: 64)
     }
 

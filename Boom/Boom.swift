@@ -106,7 +106,12 @@ public class Boom {
     
     fileprivate var container: BoomContainer!
     
-    public init(base: Any) {
+    public init(base: Any?) {
+        guard let base = base else {
+            container = BoomContainer(baseView: UIApplication.shared.keyWindow!)
+            
+            return 
+        }
         switch base {
         case let viewController as UIViewController:
             container = BoomContainer(baseView: viewController.view)
