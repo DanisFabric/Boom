@@ -23,7 +23,7 @@ class CardView: UIView {
             layer.contents = UIImage.image(size: frame.size, color: color, cornerRadius: Boom.Appearence.cornerRadius).cgImage
         case .blur(let blurEffectStyle):
             blurView = UIVisualEffectView(effect: UIBlurEffect(style: blurEffectStyle))
-            blurView?.layer.cornerRadius = 2
+            blurView?.layer.cornerRadius = Boom.Appearence.cornerRadius
             blurView?.layer.masksToBounds = true
             
             addSubview(blurView!)

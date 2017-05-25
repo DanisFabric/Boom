@@ -57,6 +57,7 @@ public class Boom {
         public static var maxHeight: CGFloat = 64
         public static var padding = UIOffset(horizontal: 16, vertical: 8)
         public static var duration: TimeInterval = 2
+        public static var autoDismissOnAction = true
         
         public struct Shadow {
             public static var isEnabled = true
@@ -137,7 +138,13 @@ extension Boom {
     public func show(snackBar style: SnackBarStyle, title: String, action: Action) -> CardIndex {
         counter += 1
         let tempCount = counter
-        let snackBar = SnackBar(frame: container.preferdCardFrame, style: style, title: title, action: action, closeHandler: { [unowned self] in
+        let snackBar = SnackBar(frame: container.preferdCardFrame, style: style, title: title, action: Action(title: action.title, handler: { [unowned self] in
+            if Boom.Appearence.autoDismissOnAction {
+                self.dismiss(at: tempCount)
+            }
+            
+            action.handler()
+        }), closeHandler: { [unowned self] in
             self.dismiss(at: tempCount)
         })
         cards[counter] = snackBar

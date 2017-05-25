@@ -27,12 +27,12 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    @IBAction func snakerInfoDark(_ sender: Any) {
-        boom.show(snackBar: .info, title: "I am SnackBar", action: Action(title: "Touch me", handler: {
+    @IBAction func snakerCustom(_ sender: Any) {
+        boom.show(snackBar: .custom(.blur(.dark), .light), title: "I am Custom SnackBar", action: Action(title: "Touch Me", handler: { 
             print("Did Touch")
         }))
     }
-    @IBAction func snakerInfoLight(_ sender: Any) {
+    @IBAction func snakerInfo(_ sender: Any) {
         boom.show(snackBar: .info, title: "I am SnackBar", action: Action(title: "Touch me", handler: {
             
         }))
@@ -48,11 +48,11 @@ class ViewController: UIViewController {
         }))
     }
     
-    @IBAction func toastInfoDark(_ sender: Any) {
-        boom.show(toast: .info, title: "I am Toast")
+    @IBAction func toastCustom(_ sender: Any) {
+        boom.show(toast: .custom(.color(UIColor.purple), .custom(UIImage(named: "like")!), .light), title: "I am Custom Toast", duration: 2)
     }
     
-    @IBAction func toastInfoLight(_ sender: Any) {
+    @IBAction func toastInfo(_ sender: Any) {
         boom.show(toast: .info, title: "I am Toast")
 
     }

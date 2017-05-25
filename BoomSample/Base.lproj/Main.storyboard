@@ -40,16 +40,15 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qsc-CO-8c7">
                                 <rect key="frame" x="0.0" y="559" width="375" height="44"/>
                                 <items>
-                                    <barButtonItem image="liveweibo_ic_heartgreen" id="D3Z-zi-XNV"/>
-                                    <barButtonItem title="info-dark" id="dMW-id-GcU">
+                                    <barButtonItem title="custom" id="dMW-id-GcU">
                                         <connections>
-                                            <action selector="toastInfoDark:" destination="BYZ-38-t0r" id="ucy-VL-XW6"/>
+                                            <action selector="toastCustom:" destination="BYZ-38-t0r" id="GfK-Eq-6yr"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="irB-Ng-IYC"/>
-                                    <barButtonItem title="info-light" id="FCg-q9-KBI">
+                                    <barButtonItem title="info" id="FCg-q9-KBI">
                                         <connections>
-                                            <action selector="toastInfoLight:" destination="BYZ-38-t0r" id="m2a-A4-lFY"/>
+                                            <action selector="toastInfo:" destination="BYZ-38-t0r" id="kX8-5K-JSl"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="fz8-pQ-9mH"/>
@@ -70,16 +69,15 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y0q-hc-sdg">
                                 <rect key="frame" x="0.0" y="515" width="375" height="44"/>
                                 <items>
-                                    <barButtonItem image="liveweibo_ic_likeblue" id="SRd-mD-dNI"/>
-                                    <barButtonItem title="info-dark" id="Qtp-o1-qRw">
+                                    <barButtonItem title="custom" id="Qtp-o1-qRw">
                                         <connections>
-                                            <action selector="snakerInfoDark:" destination="BYZ-38-t0r" id="52Z-AH-V8S"/>
+                                            <action selector="snakerCustom:" destination="BYZ-38-t0r" id="8Hz-O8-PyT"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="Rzs-8d-Hrs"/>
-                                    <barButtonItem title="info-light" id="hYv-1h-G5q">
+                                    <barButtonItem title="info" id="hYv-1h-G5q">
                                         <connections>
-                                            <action selector="snakerInfoLight:" destination="BYZ-38-t0r" id="1g2-qF-QeX"/>
+                                            <action selector="snakerInfo:" destination="BYZ-38-t0r" id="KLQ-BJ-Xi5"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="Jwr-xe-Wq8"/>
@@ -115,8 +113,4 @@
             <point key="canvasLocation" x="117.59999999999999" y="122.78860569715144"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="liveweibo_ic_heartgreen" width="16" height="16"/>
-        <image name="liveweibo_ic_likeblue" width="16" height="16"/>
-    </resources>
 </document>
