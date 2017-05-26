@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class Action {
+class Action {
     public let title: String
     public let handler: (() -> Void)
     
