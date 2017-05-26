@@ -115,13 +115,11 @@ public class Boom {
     fileprivate var counter: CardIndex = 0
     
     fileprivate lazy var container: BoomContainer = BoomContainer()
-    fileprivate var baseView: UIView
+
+    fileprivate weak var base: Any
     
-    public init(base: UIViewController) {
-        self.baseView = base.view
-    }
-    public init(base: UIView) {
-        self.baseView = base
+    public init(_ base: Any) {
+        self.base = base
     }
 }
 
@@ -129,6 +127,9 @@ extension Boom {
     @discardableResult
     public func show(toast style: ToastStyle, title: String, duration: TimeInterval? = nil) -> CardIndex {
         fill()
+        guard container.superview != nil else {
+            return -1
+        }
         let toast = Toast(frame: container.preferdCardFrame, style: style, title: title)
         counter += 1
         cards[counter] = toast
@@ -145,6 +146,10 @@ extension Boom {
     @discardableResult
     public func show(snackBar style: SnackBarStyle, title: String, actionTitle: String, action: @escaping (() -> Void)) -> CardIndex {
         fill()
+        guard container.superview != nil else {
+            return -1
+        }
+        
         counter += 1
         let tempCount = counter
         let snackBar = SnackBar(frame: container.preferdCardFrame, style: style, title: title, action: Action(title: actionTitle, handler: { [unowned self] in
@@ -173,8 +178,16 @@ extension Boom {
     
     fileprivate func fill() {
         if container.superview == nil {
-            baseView.addSubview(container)
-            container.frame = baseView.bounds
+            switch base {
+            case let viewController as UIViewController:
+                viewController.view.addSubview(container)
+                container.frame = viewController.view.bounds
+            case let view as UIView:
+                view.addSubview(container)
+                container.frame = view.bounds
+            default:
+                break
+            }
         }
     }
 

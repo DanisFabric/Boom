@@ -21,14 +21,14 @@ class SampleTableViewController: UITableViewController {
     @IBOutlet weak var snackInfoCell: UITableViewCell!
     @IBOutlet weak var snackWarningCell: UITableViewCell!
     
-    lazy var boom: Boom = {
-        return Boom(base: self)
-    }()
+    var boom: Boom!
     
     var indexes = [Int]()
 
     override func viewDidLoad() {
-        super.viewDidLoad()        
+        super.viewDidLoad()
+        
+        boom = Boom(self)
     }
 
     override func didReceiveMemoryWarning() {
