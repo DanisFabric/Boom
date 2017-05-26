@@ -141,16 +141,16 @@ extension Boom {
         return counter
     }
     @discardableResult
-    public func show(snackBar style: SnackBarStyle, title: String, action: Action) -> CardIndex {
+    public func show(snackBar style: SnackBarStyle, title: String, actionTitle: String, action: @escaping (() -> Void)) -> CardIndex {
         fill()
         counter += 1
         let tempCount = counter
-        let snackBar = SnackBar(frame: container.preferdCardFrame, style: style, title: title, action: Action(title: action.title, handler: { [unowned self] in
+        let snackBar = SnackBar(frame: container.preferdCardFrame, style: style, title: title, action: Action(title: actionTitle, handler: { [unowned self] in
             if Boom.Appearence.autoDismissOnAction {
                 self.dismiss(at: tempCount)
             }
             
-            action.handler()
+            action()
         }), closeHandler: { [unowned self] in
             self.dismiss(at: tempCount)
         })

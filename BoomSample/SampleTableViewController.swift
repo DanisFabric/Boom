@@ -54,21 +54,21 @@ class SampleTableViewController: UITableViewController {
             boom.show(toast: .warning, title: "I am Toast")
 
         case snackCustomCell:
-            boom.show(snackBar: .custom(.blur(.dark), .light), title: "I am Custom SnackBar", action: Action(title: "Touch Me", handler: {
-                print("Did Touch")
-            }))
+            boom.show(snackBar: .custom(.blur(.dark), .light), title: "I am Custom SnackBar", actionTitle: "Touch me", action: {
+                print("touched")
+            })
         case snackSuccessCell:
-            boom.show(snackBar: .success, title: "I am SnackBar", action: Action(title: "Touch me", handler: {
-                
-            }))
+            boom.show(snackBar: .success, title: "I am SnackBar", actionTitle: "Touch me", action: {
+                print("touched")
+            })
         case snackInfoCell:
-            boom.show(snackBar: .info, title: "I am SnackBar", action: Action(title: "Touch me", handler: {
-                
-            }))
+            boom.show(snackBar: .info, title: "I am SnackBar", actionTitle: "Touch me", action: {
+                print("touched")
+            })
         case snackWarningCell:
-            boom.show(snackBar: .warning, title: "I am SnackBar", action: Action(title: "Touch me", handler: {
-                
-            }))
+            boom.show(snackBar: .warning, title: "I am SnackBar", actionTitle: "Touch me", action: {
+                print("touched")
+            })
         default:
             break
         }

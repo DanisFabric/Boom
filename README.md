@@ -33,9 +33,9 @@ class ViewController {
     boom.show(toast: .success, title: "I am Toast")
 
     // a warning snackBar
-    boom.show(snackBar: .warning, title: "I am SnackBar", action: Action(title: "Touch me", handler: {
-      print("did touch")
-    }))
+    boom.show(snackBar: .info, title: "I am SnackBar", actionTitle: "Touch me", action: {
+      print("touched")
+    })
   }
 }
 ```
@@ -74,7 +74,7 @@ func show(toast style: ToastStyle, title: String, duration: TimeInterval? = nil)
 
 ```swift
 
-func show(snackBar style: SnackBarStyle, title: String, action: Action) -> CardIndex
+func show(snackBar style: SnackBarStyle, title: String, actionTitle: String, action: @escaping (() -> Void)) -> CardIndex
 ```
 
 ## 自定义
