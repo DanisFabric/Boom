@@ -25,10 +25,12 @@ github "DanisFabric/Boom"
 
 ```swift
 class ViewController {
-  lazy var boom: Boom = Boom(base: self)
+var boom: Boom!
+
   override viewDidLoad() {
     super.viewDidLoad()
 
+    boom = Boom(self)
     // a success toast
     boom.show(toast: .success, title: "I am Toast")
 
