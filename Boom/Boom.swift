@@ -115,11 +115,13 @@ public class Boom {
     fileprivate var counter: CardIndex = 0
     
     fileprivate lazy var container: BoomContainer = BoomContainer()
-    fileprivate weak var base: AnyObject?
+    fileprivate var baseView: UIView
     
-    public init(base: Any?) {
-        self.base = base as AnyObject
-        
+    public init(base: UIViewController) {
+        self.baseView = base.view
+    }
+    public init(base: UIView) {
+        self.baseView = base
     }
 }
 
@@ -171,22 +173,8 @@ extension Boom {
     
     fileprivate func fill() {
         if container.superview == nil {
-            guard let base = base else {
-                UIApplication.shared.keyWindow?.addSubview(container)
-                container.frame = UIApplication.shared.keyWindow?.frame ?? CGRect()
-                
-                return
-            }
-            switch base {
-            case let viewController as UIViewController:
-                viewController.view.addSubview(container)
-                container.frame = viewController.view.bounds
-            case let view as UIView:
-                view.addSubview(container)
-                container.frame = view.frame
-            default:
-                break
-            }
+            baseView.addSubview(container)
+            container.frame = baseView.bounds
         }
     }
 
