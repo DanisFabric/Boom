@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-        Boom.Appearence.duration = 1.5
+        Boom.Appearence.duration = 1
 //        Boom.Appearence.preferdHeight = 64
 //        Boom.Appearence.padding = UIOffset(horizontal: 16, vertical: 16)
 //        Boom.Appearence.cornerRadius = 8

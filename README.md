@@ -2,7 +2,7 @@
 
 `Boom`是一个为iOS应用提供更好的弹框通知的组件库。`Boom`的弹框采用堆叠的形式。新的消息不会遮盖旧消息。并且`Boom`能够被充分的定制化以适应不同的App的界面风格。
 
-![Sample Image](http://sdfsdf.com)
+![Sample Image](https://github.com/DanisFabric/InfinityImages/blob/master/boom/snackBar/sample.gif)
 
 ## Requirements
 
