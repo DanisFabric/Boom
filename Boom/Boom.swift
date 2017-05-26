@@ -116,10 +116,10 @@ public class Boom {
     
     fileprivate lazy var container: BoomContainer = BoomContainer()
 
-    fileprivate weak var base: Any
+    fileprivate weak var base: AnyObject?
     
     public init(_ base: Any) {
-        self.base = base
+        self.base = base as AnyObject
     }
 }
 
