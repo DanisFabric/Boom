@@ -11,7 +11,8 @@ import Foundation
 extension UIImage {
     static func image(size: CGSize, color: UIColor, cornerRadius: CGFloat) -> UIImage {
         let frame = CGRect(origin: CGPoint(), size: size)
-        UIGraphicsBeginImageContextWithOptions(frame.size, false, 0)
+//        UIGraphicsBeginImageContextWithOptions(frame.size, false, 0)
+        UIGraphicsBeginImageContext(frame.size)
         let context = UIGraphicsGetCurrentContext()!
         context.setFillColor(color.cgColor)
         context.addPath(UIBezierPath(roundedRect: frame, cornerRadius: cornerRadius).cgPath)

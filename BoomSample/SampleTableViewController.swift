@@ -21,7 +21,7 @@ class SampleTableViewController: UITableViewController {
     @IBOutlet weak var snackInfoCell: UITableViewCell!
     @IBOutlet weak var snackWarningCell: UITableViewCell!
     
-    var boom: Boom!
+    lazy var boom = Boom(base: self)
     
     var indexes = [Int]()
 
@@ -29,7 +29,7 @@ class SampleTableViewController: UITableViewController {
         super.viewDidLoad()
         
 //        boom = Boom(base: self.navigationController!)
-        boom = Boom(base: nil)
+//        boom = Boom(base: nil)
         boom.offset = UIOffset(horizontal: 0, vertical: 64)
     }
 

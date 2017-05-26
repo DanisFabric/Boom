@@ -114,28 +114,19 @@ public class Boom {
     fileprivate var cards = [CardIndex: CardView]()
     fileprivate var counter: CardIndex = 0
     
-    fileprivate var container: BoomContainer!
+    fileprivate lazy var container: BoomContainer = BoomContainer()
+    fileprivate weak var base: AnyObject?
     
     public init(base: Any?) {
-        guard let base = base else {
-            container = BoomContainer(baseView: UIApplication.shared.keyWindow!)
-            
-            return 
-        }
-        switch base {
-        case let viewController as UIViewController:
-            container = BoomContainer(baseView: viewController.view)
-        case let view as UIView:
-            container = BoomContainer(baseView: view)
-        default:
-            break
-        }
+        self.base = base as AnyObject
+        
     }
 }
 
 extension Boom {
     @discardableResult
     public func show(toast style: ToastStyle, title: String, duration: TimeInterval? = nil) -> CardIndex {
+        fill()
         let toast = Toast(frame: container.preferdCardFrame, style: style, title: title)
         counter += 1
         cards[counter] = toast
@@ -151,6 +142,7 @@ extension Boom {
     }
     @discardableResult
     public func show(snackBar style: SnackBarStyle, title: String, action: Action) -> CardIndex {
+        fill()
         counter += 1
         let tempCount = counter
         let snackBar = SnackBar(frame: container.preferdCardFrame, style: style, title: title, action: Action(title: action.title, handler: { [unowned self] in
@@ -176,6 +168,28 @@ extension Boom {
         }
         container.dismiss(card: card, completion: nil)
     }
+    
+    fileprivate func fill() {
+        if container.superview == nil {
+            guard let base = base else {
+                UIApplication.shared.keyWindow?.addSubview(container)
+                container.frame = UIApplication.shared.keyWindow?.frame ?? CGRect()
+                
+                return
+            }
+            switch base {
+            case let viewController as UIViewController:
+                viewController.view.addSubview(container)
+                container.frame = viewController.view.bounds
+            case let view as UIView:
+                view.addSubview(container)
+                container.frame = view.frame
+            default:
+                break
+            }
+        }
+    }
+
 
 }
 

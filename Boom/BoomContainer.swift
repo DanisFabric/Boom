@@ -9,24 +9,10 @@
 import UIKit
 
 class BoomContainer: UIView {
-    var baseView: UIView
-    
     var offset: UIOffset = UIOffset()
     
     var preferdCardFrame: CGRect {
-        fill()
-        
         return CGRect(x: 0, y: 0, width: self.bounds.width - Boom.Appearence.padding.horizontal * 2, height: Boom.Appearence.preferdHeight)
-    }
-    
-    init(baseView: UIView) {
-        self.baseView = baseView
-        
-        super.init(frame: CGRect())
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
     
     func show(card: CardView, completion: (() -> Void)?) {
@@ -68,12 +54,6 @@ class BoomContainer: UIView {
 }
 
 extension BoomContainer  {
-    fileprivate func fill() {
-        if superview == nil {
-            baseView.addSubview(self)
-            self.frame = baseView.bounds
-        }
-    }
     public override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
         for card in subviews {
             if card.frame.contains(point) {
